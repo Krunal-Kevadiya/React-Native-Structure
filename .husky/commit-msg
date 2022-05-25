@@ -1,0 +1,13 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+if [[ "$1" =~ ^.*COMMIT_EDITMSG$ ]]; then
+  message=$(cat "$1")
+else
+  message="$1"
+fi
+
+if ! [[ "$message" =~ ^(feat|fix|refactor|docs|style|perf|test|chore|release):[[:space:]][A-Z0-9]+-[A-Z0-9]+:[[:space:]][A-Za-z0-9].*$ ]]; then
+  echo  "Commit message should start with the type(feat|fix|refactor|docs|style|perf|test|chore), followed by Zoho or Asana task-id and task name (example: 'feat: TA1-T123: Enable Client Certificate Support')"
+  exit 1
+fi

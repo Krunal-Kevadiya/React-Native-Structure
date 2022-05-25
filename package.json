@@ -1,0 +1,72 @@
+{
+  "name": "reactnativestructure",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "test": "jest",
+    "start": "react-native start",
+    "start-reset-cache": "react-native start --reset-cache",
+    "yarn-i": "yarn install",
+    "pod-install": "cd ios && pod install && cd ..",
+    "jetify": "npx jetify",
+    "setup": "yarn run yarn-i && yarn run jetify && yarn run pod-install",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "set-env-dev": "ENV=Dev ./Scripts/envscript.sh true setup",
+    "set-env-prod": "ENV=Prod ./Scripts/envscript.sh true setup",
+    "android-dev": "yarn run set-env-dev && yarn run android",
+    "android-prod": "yarn run set-env-prod && yarn run android",
+    "ios-dev": "yarn run set-env-dev && yarn run ios",
+    "ios-prod": "yarn run set-env-prod && yarn run ios",
+    "lint": "eslint --no-error-on-unmatched-pattern './Src/**/*.{js,jsx,ts,tsx}'",
+    "format": "yarn run lint --fix",
+    "pretty": "prettier --write --no-error-on-unmatched-pattern './Src/**/*.{js,jsx,ts,tsx}'",
+    "pretty-Lint": "yarn run pretty && yarn run format && yarn run lint",
+    "prepare": "husky install",
+    "postinstall": "chmod +x ./Scripts/envscript.sh",
+    "outdated": "yarn outdated",
+    "all-package-update": "yarn upgrade --latest",
+    "app-center-env-prod": "ENV=Prod ./Scripts/envscript.sh false setup",
+    "release-code": "ENV=Prod ./Scripts/envscript.sh true setupWithBuild code",
+    "release-minor-code": "ENV=Prod ./Scripts/envscript.sh true setupWithBuild minorWithCode",
+    "release-major-code": "ENV=Prod ./Scripts/envscript.sh true setupWithBuild majorWithCode",
+    "release-minor": "ENV=Prod ./Scripts/envscript.sh true setupWithBuild minor",
+    "release-major": "ENV=Prod ./Scripts/envscript.sh true setupWithBuild major",
+    "release-reset": "ENV=Prod ./Scripts/envscript.sh true setupWithBuild reset"
+  },
+  "dependencies": {
+    "react": "17.0.2",
+    "react-native": "0.68.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/runtime": "^7.12.5",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "@types/jest": "^26.0.23",
+    "@types/react-native": "^0.67.3",
+    "@types/react-test-renderer": "^17.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.17.0",
+    "@typescript-eslint/parser": "^5.17.0",
+    "babel-jest": "^26.6.3",
+    "eslint": "^7.32.0",
+    "eslint-plugin-import": "^2.26.0",
+    "jest": "^26.6.3",
+    "metro-react-native-babel-preset": "^0.67.0",
+    "react-test-renderer": "17.0.2",
+    "typescript": "^4.4.4"
+  },
+  "resolutions": {
+    "@types/react": "^17"
+  },
+  "jest": {
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  }
+}
