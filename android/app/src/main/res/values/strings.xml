@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">ReactNativeStructure</string>
+  <string name="app_name">React Native Structure dev</string>
+  <string name="CodePushDeploymentKey" moduleConfig="true"></string>
 </resources>

@@ -3,6 +3,11 @@
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
+#import <AppCenterReactNative.h>
+#import <CodePush/CodePush.h>
+#import <React/RCTLinkingManager.h>
+#import "RNSplashScreen.h"
+#import "Orientation.h"
 
 #import <React/RCTAppSetupUtils.h>
 
@@ -54,16 +59,49 @@
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+
+  //App Center
+  [AppCenterReactNative register];
+  
+  //Splash screen
+  [RNSplashScreen initialize:@"LaunchScreen" inRootView:rootView];
+  [RNSplashScreen show];
+  
+  //Set initial orientation
+  [Orientation setOrientation:UIInterfaceOrientationMaskPortrait];
   return YES;
 }
 
+//App Center CodePush
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
 {
 #if DEBUG
   return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index"];
 #else
-  return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+  return [CodePush bundleURL];
+  //return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 #endif
+}
+
+//DeepLink
+- (BOOL)application:(UIApplication *)application
+   openURL:(NSURL *)url
+   options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
+{
+  return [RCTLinkingManager application:application openURL:url options:options]; // || [RNGoogleSignin application:application openURL:url options:options];
+}
+
+- (BOOL)application:(UIApplication *)application continueUserActivity:(nonnull NSUserActivity *)userActivity
+ restorationHandler:(nonnull void (^)(NSArray<id<UIUserActivityRestoring>> * _Nullable))restorationHandler
+{
+ return [RCTLinkingManager application:application
+                  continueUserActivity:userActivity
+                    restorationHandler:restorationHandler];
+}
+
+// Screen orientation
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
+  return [Orientation getOrientation];
 }
 
 #if RCT_NEW_ARCH_ENABLED

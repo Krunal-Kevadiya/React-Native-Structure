@@ -1,8 +1,3 @@
-/**
- * @format
- */
-
-import { setTranslationsLanguageConfig } from '@configs';
 import React from 'react';
 import { AppRegistry, LogBox, Text, TextInput } from 'react-native';
 import 'react-native-gesture-handler';
@@ -15,7 +10,6 @@ Text.defaultProps.allowFontScaling = false;
 TextInput.defaultProps = TextInput.defaultProps ?? {};
 TextInput.defaultProps.allowFontScaling = false;
 
-setTranslationsLanguageConfig();
 LogBox.ignoreAllLogs(true);
 LogBox.ignoreLogs([
   'EventEmitter.removeListener',

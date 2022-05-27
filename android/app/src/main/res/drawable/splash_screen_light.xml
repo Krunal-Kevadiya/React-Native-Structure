@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/splash_background"
+        android:drawable="@android:color/white"
+        android:height="812dp"
+        android:width="375dp"
+        android:gravity="fill" />
+
+    <item
+        android:drawable="@drawable/img_background"
+        android:height="639dp"
+        android:width="299dp"
+        android:top="20dp"
+        android:gravity="right"/>
+
+    <item
+        android:drawable="@drawable/logo_black"
+        android:height="45dp"
+        android:width="130dp"
+        android:gravity="center"/>
+
+</layer-list>

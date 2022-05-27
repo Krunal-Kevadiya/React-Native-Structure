@@ -10,14 +10,21 @@
 <br/><br/><br/>
 
 Welcome to the **React Native Structure
- Mobile**!
+Mobile**!
 
 This application is useful for setup basic structure of new project.
 
-- Full typescript support
-- Config Eslint and prettier for formatting 
-- Added custom module for importing
-- Disable system font scaling
+- Fully typescript support.
+- Config Eslint and prettier for code formatting.
+- Added custom module for importing local directory.
+- Disable system font scaling.
+- Added microsoft appcenter codePush feature support.
+- Added some basic custom component like BottomSheet, Button, FormInput, Header, Icon, ProfileAvatar, Progress, Switch, Toast etc.
+- Support SVG images.
+- Configure Sentry, Formik, Multiple Language Translation, Redux-Toolkit, saga, Socket.io, apisauce with auto canceling feature.
+- Predefine custom hooks like Keyboard, Permission, Debounce, Timeout, AppState, AsyncStorage etc.
+- Predefine support for Light - Dark theme mode.
+- Config react navigation with deep link support.
 
 To get started,
 
@@ -34,6 +41,37 @@ To get started,
 ## Troubleshoot Notes
 
 - There are no known issues for a run or build process right now.
+
+## Use React Native Typescript Boilerplate
+
+- Clone this repository to local and move to directory
+- Install **React-Native-Rename** global using
+
+  With **Yarn**:
+
+  ```
+  $ yarn global add react-native-rename
+  ```
+
+  With **npm**:
+
+  ```
+  $ npm install react-native-rename -g
+  ```
+
+- Rename app and package | bundle identifier using
+
+  Then, Rename your app
+
+  ```
+  $ npx react-native-rename "Travel App"
+  ```
+
+  With custom Bundle Identifier
+
+  ```
+  $ npx react-native-rename "Travel App" -b com.junedomingo.travelapp
+  ```
 
 ## Notes
 

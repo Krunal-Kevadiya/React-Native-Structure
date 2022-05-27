@@ -1,4 +1,5 @@
 {
   "sentryUrl": "",
-  "apiUrl": ""
+  "apiUrl": "https://reqres.in",
+  "segment": ""
 }

@@ -4,6 +4,17 @@ module.exports = {
     'react-native-reanimated/plugin',
     ['@babel/plugin-proposal-decorators', { legacy: true }],
     [
+      'module:react-native-dotenv',
+      {
+        moduleName: 'react-native-dotenv',
+        path: '.env',
+        blacklist: ['ENV'],
+        allowlist: ['SENTRY_URL', 'SEGMENT_KEY', 'API_URL', 'ENVIRONMENT'],
+        safe: true,
+        allowUndefined: false
+      }
+    ],
+    [
       'module-resolver',
       {
         extensions: ['.js', '.ts', '.tsx', '.jsx'],
@@ -20,12 +31,12 @@ module.exports = {
           '@hooks': './Src/Hooks',
           '@modules-auth': './Src/Modules/Auth',
           '@modules-home': './Src/Modules/Home',
-          '@modules-setting': './Src/Modules/Setting',
+          '@modules-launch': './Src/Modules/Launch',
           '@modules': './Src/Modules',
           '@navigators': './Src/Navigators',
           '@models-form': './Src/Models/Form',
           '@models-other': './Src/Models/Other',
-          '@models-util': './Src/Models/PojoModelUtil',
+          '@models-util': './Src/Models/ModelUtil',
           '@models-request': './Src/Models/Request',
           '@models-response': './Src/Models/Response',
           '@models-schema': './Src/Models/Schema',
@@ -40,17 +51,6 @@ module.exports = {
           '@translations': './Src/Translations',
           '@utils': './Src/Utils'
         }
-      }
-    ],
-    [
-      'module:react-native-dotenv',
-      {
-        moduleName: 'react-native-dotenv',
-        path: '.env',
-        blacklist: ['ENV'],
-        whitelist: ['SENTRY_URL', 'DOMAIN', 'ENVIRONMENT'],
-        safe: true,
-        allowUndefined: false
       }
     ],
     [
